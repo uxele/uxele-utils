@@ -16,7 +16,14 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
   // img.src=canvas.toDataURL();
   // return img;
 }
-
+export function zoomImg(img:HTMLImageElement,zoom:number):Promise<HTMLImageElement>{
+  const canvas=document.createElement("canvas");
+  canvas.width=img.width*zoom;
+  canvas.height=img.height*zoom;
+  const ctx=canvas.getContext("2d");
+  ctx!.drawImage(img,0,0,canvas.width,canvas.height);
+  return canvasToImg(canvas);
+}
 export function cropCanvas(canvas: HTMLCanvasElement, rect: Rect): HTMLCanvasElement {
   if (rect.right > canvas.width) {
     rect.right = canvas.width;

@@ -16,6 +16,15 @@ function canvasToImg(canvas) {
     // return img;
 }
 exports.canvasToImg = canvasToImg;
+function zoomImg(img, zoom) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width * zoom;
+    canvas.height = img.height * zoom;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvasToImg(canvas);
+}
+exports.zoomImg = zoomImg;
 function cropCanvas(canvas, rect) {
     if (rect.right > canvas.width) {
         rect.right = canvas.width;
