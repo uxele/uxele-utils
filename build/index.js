@@ -15,4 +15,5 @@ exports.canvas = _canvas;
 __export(require("./cachePromise"));
 __export(require("./sleep"));
 __export(require("./loadRemoteFile"));
+__export(require("./adjustPixelRect"));
 //# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/index.js.map

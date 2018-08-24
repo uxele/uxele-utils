@@ -3,3 +3,4 @@ export const canvas = _canvas;
 export * from "./cachePromise";
 export * from "./sleep";
 export * from "./loadRemoteFile";
+export * from "./adjustPixelRect";
