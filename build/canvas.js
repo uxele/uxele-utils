@@ -74,4 +74,13 @@ function svgToUrl(svgData) {
     return URL.createObjectURL(svg);
 }
 exports.svgToUrl = svgToUrl;
+function imgToCanvas(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    return canvas;
+}
+exports.imgToCanvas = imgToCanvas;
 //# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/canvas.js.map

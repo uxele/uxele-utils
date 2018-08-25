@@ -73,3 +73,11 @@ export function svgToUrl(svgData: string): string {
   const svg = new Blob([svgData], { type: "image/svg+xml" });
   return URL.createObjectURL(svg);
 }
+export function imgToCanvas(img:HTMLImageElement):HTMLCanvasElement{
+  const canvas=document.createElement("canvas");
+  canvas.width=img.naturalWidth;
+  canvas.height=img.naturalHeight;
+  const ctx=canvas.getContext("2d")!;
+  ctx.drawImage(img,0,0);
+  return canvas;
+}
