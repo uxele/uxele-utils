@@ -18,9 +18,10 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
 }
 
 export function zoomImg(img:HTMLImageElement,zoom:number):Promise<HTMLImageElement>{
+  console.log("canvaszoom",zoom);
   const canvas=document.createElement("canvas");
-  canvas.width=img.width*zoom;
-  canvas.height=img.height*zoom;
+  canvas.width=img.naturalWidth*zoom;
+  canvas.height=img.naturalHeight*zoom;
   const ctx=canvas.getContext("2d");
   ctx!.drawImage(img,0,0,canvas.width,canvas.height);
   return canvasToImg(canvas);

@@ -17,9 +17,10 @@ function canvasToImg(canvas) {
 }
 exports.canvasToImg = canvasToImg;
 function zoomImg(img, zoom) {
+    console.log("canvaszoom", zoom);
     var canvas = document.createElement("canvas");
-    canvas.width = img.width * zoom;
-    canvas.height = img.height * zoom;
+    canvas.width = img.naturalWidth * zoom;
+    canvas.height = img.naturalHeight * zoom;
     var ctx = canvas.getContext("2d");
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     return canvasToImg(canvas);
