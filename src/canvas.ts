@@ -1,8 +1,9 @@
 import { Rect } from "psdetch-core";
-
+import { lang } from "psdetch-i18n";
+export type CanvasExportFormat = "image/png" | "image/jpeg" | "image/webp";
 export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement> {
   const img = document.createElement("img");
-  return new Promise((resolve,reject)=>{
+  return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
       const src = URL.createObjectURL(blob);
       img.src = src;
@@ -12,18 +13,46 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
       };
     });
   })
-  
+
   // img.src=canvas.toDataURL();
   // return img;
 }
+export async function svgToCanvas(svg:string, scale:number):Promise<HTMLCanvasElement>{
+  return new Promise<HTMLCanvasElement>((resolve,reject)=>{
+    const img=new Image();
+    img.src=svgToUrl(svg);
+    img.onload=()=>{
+      const width=img.width*scale;
+      const height=img.height*scale;
+      const canvas=document.createElement("canvas");
+      canvas.width=width;
+      canvas.height=height;
+      const ctx=canvas.getContext("2d")!;
+      ctx.drawImage(img,0,0,width,height);
+      resolve(canvas);
+    }
+  });
 
-export function zoomImg(img:HTMLImageElement,zoom:number):Promise<HTMLImageElement>{
-  console.log("canvaszoom",zoom);
-  const canvas=document.createElement("canvas");
-  canvas.width=img.naturalWidth*zoom;
-  canvas.height=img.naturalHeight*zoom;
-  const ctx=canvas.getContext("2d");
-  ctx!.drawImage(img,0,0,canvas.width,canvas.height);
+}
+export async function canvasToFile(canvas: HTMLCanvasElement, name: string, format: CanvasExportFormat, quality: number): Promise<File> {
+  return new Promise<File>((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (blob){
+        const f = new File([blob], name, { type: format });
+        resolve(f);
+      }else{
+        reject(lang("error_canvas_convert_file_fail",format,"Blob returned as null."));
+      }
+      
+    }, format, quality);
+  });
+}
+export function zoomImg(img: HTMLImageElement, zoom: number): Promise<HTMLImageElement> {
+  const canvas = document.createElement("canvas");
+  canvas.width = img.naturalWidth * zoom;
+  canvas.height = img.naturalHeight * zoom;
+  const ctx = canvas.getContext("2d");
+  ctx!.drawImage(img, 0, 0, canvas.width, canvas.height);
   return canvasToImg(canvas);
 }
 export function cropCanvas(canvas: HTMLCanvasElement, rect: Rect): HTMLCanvasElement {
@@ -75,11 +104,20 @@ export function svgToUrl(svgData: string): string {
   const svg = new Blob([svgData], { type: "image/svg+xml" });
   return URL.createObjectURL(svg);
 }
-export function imgToCanvas(img:HTMLImageElement):HTMLCanvasElement{
-  const canvas=document.createElement("canvas");
-  canvas.width=img.naturalWidth;
-  canvas.height=img.naturalHeight;
-  const ctx=canvas.getContext("2d")!;
-  ctx.drawImage(img,0,0);
+export function imgToCanvas(img: HTMLImageElement): HTMLCanvasElement {
+  const canvas = document.createElement("canvas");
+  canvas.width = img.naturalWidth;
+  canvas.height = img.naturalHeight;
+  const ctx = canvas.getContext("2d")!;
+  ctx.drawImage(img, 0, 0);
   return canvas;
+}
+
+export function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCanvasElement {
+  const rtn = document.createElement("canvas");
+  rtn.width = oriCanvas.width * scale;
+  rtn.height = oriCanvas.height * scale;
+  const ctx = rtn.getContext("2d")!;
+  ctx.drawImage(oriCanvas, 0, 0, oriCanvas.width, oriCanvas.height, 0, 0, rtn.width, rtn.height);
+  return rtn;
 }

@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "path": "^0.12.7",
-    "psdetch-core": "git+ssh://git@gitlab.com/psdetch/psdetch-core.git"
+    "psdetch-core": "git+ssh://git@gitlab.com/psdetch/psdetch-core.git",
+    "psdetch-i18n": "git+ssh://git@gitlab.com/psdetch/psdetch-i18n.git"
   }
 }

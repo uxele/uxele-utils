@@ -1,7 +1,11 @@
 import { Rect } from "psdetch-core";
+export declare type CanvasExportFormat = "image/png" | "image/jpeg" | "image/webp";
 export declare function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement>;
+export declare function svgToCanvas(svg: string, scale: number): Promise<HTMLCanvasElement>;
+export declare function canvasToFile(canvas: HTMLCanvasElement, name: string, format: CanvasExportFormat, quality: number): Promise<File>;
 export declare function zoomImg(img: HTMLImageElement, zoom: number): Promise<HTMLImageElement>;
 export declare function cropCanvas(canvas: HTMLCanvasElement, rect: Rect): HTMLCanvasElement;
 export declare function canvasToImgUrl(canvas: HTMLCanvasElement): Promise<string>;
 export declare function svgToUrl(svgData: string): string;
 export declare function imgToCanvas(img: HTMLImageElement): HTMLCanvasElement;
+export declare function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCanvasElement;

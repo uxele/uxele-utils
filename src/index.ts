@@ -4,3 +4,4 @@ export * from "./cachePromise";
 export * from "./sleep";
 export * from "./loadRemoteFile";
 export * from "./adjustPixelRect";
+export * from "./canvas";
