@@ -40,12 +40,17 @@ function canvasToImg(canvas) {
     var img = document.createElement("img");
     return new Promise(function (resolve, reject) {
         canvas.toBlob(function (blob) {
-            var src = URL.createObjectURL(blob);
-            img.src = src;
-            img.onload = function () {
-                URL.revokeObjectURL(src);
-                resolve(img);
-            };
+            if (blob) {
+                var src_1 = URL.createObjectURL(blob);
+                img.src = src_1;
+                img.onload = function () {
+                    URL.revokeObjectURL(src_1);
+                    resolve(img);
+                };
+            }
+            else {
+                reject(uxele_i18n_1.lang("error_canvas_convert_file_fail", "PNG", "Blob returned as null."));
+            }
         });
     });
     // img.src=canvas.toDataURL();

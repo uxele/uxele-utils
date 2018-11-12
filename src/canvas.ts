@@ -5,12 +5,16 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
   const img = document.createElement("img");
   return new Promise((resolve, reject) => {
     canvas.toBlob((blob) => {
-      const src = URL.createObjectURL(blob);
-      img.src = src;
-      img.onload = () => {
-        URL.revokeObjectURL(src);
-        resolve(img);
-      };
+      if (blob){
+        const src = URL.createObjectURL(blob);
+        img.src = src;
+        img.onload = () => {
+          URL.revokeObjectURL(src);
+          resolve(img);
+        };
+      }else{
+        reject(lang("error_canvas_convert_file_fail","PNG","Blob returned as null."));
+      }
     });
   })
 
