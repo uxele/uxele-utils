@@ -8,9 +8,9 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var path = __importStar(require("path"));
-var psdetch_core_1 = require("psdetch-core");
+var uxele_core_1 = require("uxele-core");
 function loadRemoteFile(params) {
-    var rtn = new psdetch_core_1.Progress();
+    var rtn = new uxele_core_1.Progress();
     var xhr = new XMLHttpRequest();
     var url = params.url.trim();
     var filename = path.basename(url);
@@ -56,4 +56,4 @@ function loadRemoteFile(params) {
     return rtn;
 }
 exports.loadRemoteFile = loadRemoteFile;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/loadRemoteFile.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/loadRemoteFile.js.map

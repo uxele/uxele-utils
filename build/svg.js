@@ -41,4 +41,4 @@ function centerSvgStringViewBox(svg) {
     return rtn;
 }
 exports.centerSvgStringViewBox = centerSvgStringViewBox;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/svg.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/svg.js.map

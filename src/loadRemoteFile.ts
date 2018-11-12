@@ -1,5 +1,5 @@
 import * as path from "path";
-import { IFileBlob, Progress } from "psdetch-core";
+import { IFileBlob, Progress } from "uxele-core";
 export interface ILoadRemoteFileOption {
   url: string;
   header?: { [key: string]: string };

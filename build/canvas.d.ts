@@ -1,4 +1,4 @@
-import { Rect } from "psdetch-core";
+import { Rect } from "uxele-core";
 export declare type CanvasExportFormat = "image/png" | "image/jpeg" | "image/webp";
 export declare function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement>;
 export declare function svgToCanvas(svg: string, scale: number): Promise<HTMLCanvasElement>;

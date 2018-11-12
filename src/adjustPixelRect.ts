@@ -1,4 +1,4 @@
-import { Rect } from "psdetch-core";
+import { Rect } from "uxele-core";
 
 export function adjustPixelRect(rect: Rect, c: HTMLCanvasElement): Rect {
   const trimRect = trimOffsetCanvas(c);

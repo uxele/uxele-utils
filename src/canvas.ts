@@ -1,5 +1,5 @@
-import { Rect } from "psdetch-core";
-import { lang } from "psdetch-i18n";
+import { Rect } from "uxele-core";
+import { lang } from "uxele-i18n";
 export type CanvasExportFormat = "image/png" | "image/jpeg" | "image/webp";
 export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement> {
   const img = document.createElement("img");

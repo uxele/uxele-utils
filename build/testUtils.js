@@ -15,4 +15,4 @@ function testAlert(msg, forceShow) {
     }
 }
 exports.testAlert = testAlert;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/testUtils.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/testUtils.js.map

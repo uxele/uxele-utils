@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var psdetch_core_1 = require("psdetch-core");
+var uxele_core_1 = require("uxele-core");
 function adjustPixelRect(rect, c) {
     var trimRect = trimOffsetCanvas(c);
     if (trimRect) {
@@ -95,9 +95,9 @@ function trimOffsetCanvas(c) {
         }
     }
     if (newLeft > 0 || newTop > 0 || newBottom < height - 1 || newRight < width - 1) {
-        return new psdetch_core_1.Rect(newLeft, newTop, newRight + 1, newBottom + 1);
+        return new uxele_core_1.Rect(newLeft, newTop, newRight + 1, newBottom + 1);
     }
     // if no trim need/ return null
     return undefined;
 }
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/adjustPixelRect.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/adjustPixelRect.js.map

@@ -68,4 +68,4 @@ function funcWrapper(func) {
     };
 }
 exports.funcWrapper = funcWrapper;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/cachePromise.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/cachePromise.js.map

@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var psdetch_i18n_1 = require("psdetch-i18n");
+var uxele_i18n_1 = require("uxele-i18n");
 function canvasToImg(canvas) {
     var img = document.createElement("img");
     return new Promise(function (resolve, reject) {
@@ -83,7 +83,7 @@ function canvasToFile(canvas, name, format, quality) {
                             resolve(f);
                         }
                         else {
-                            reject(psdetch_i18n_1.lang("error_canvas_convert_file_fail", format, "Blob returned as null."));
+                            reject(uxele_i18n_1.lang("error_canvas_convert_file_fail", format, "Blob returned as null."));
                         }
                     }, format, quality);
                 })];
@@ -167,4 +167,4 @@ function scaleCanvas(oriCanvas, scale) {
     return rtn;
 }
 exports.scaleCanvas = scaleCanvas;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/canvas.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/canvas.js.map

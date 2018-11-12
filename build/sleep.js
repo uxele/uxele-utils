@@ -6,4 +6,4 @@ function sleep(ms) {
     });
 }
 exports.sleep = sleep;
-//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/sleep.js.map
+//# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/sleep.js.map
