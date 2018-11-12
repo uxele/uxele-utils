@@ -1,8 +1,8 @@
 {
-  "name": "psdetch-utils",
+  "name": "uxele-utils",
   "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "build/index.js",
   "scripts": {
     "test": "karma start",
     "test:human": "INTERACTIVE=true karma start",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "path": "^0.12.7",
-    "psdetch-core": "git+ssh://git@gitlab.com/psdetch/psdetch-core.git",
-    "psdetch-i18n": "git+ssh://git@gitlab.com/psdetch/psdetch-i18n.git"
+    "uxele-core": "git+ssh://git@github.com/uxele/uxele-core.git",
+    "uxele-i18n": "git+ssh://git@github.com/uxele/uxele-i18n.git"
   }
 }

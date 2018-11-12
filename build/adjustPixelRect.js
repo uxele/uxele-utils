@@ -28,6 +28,9 @@ function trimOffsetCanvas(c) {
     var ctx = c.getContext("2d");
     var width = c.width;
     var height = c.height;
+    if (width === 0 || height === 0) {
+        return undefined;
+    }
     var imgData = ctx.getImageData(0, 0, width, height).data;
     var newTop = 0;
     var newLeft = 0;

@@ -5,3 +5,4 @@ export * from "./sleep";
 export * from "./loadRemoteFile";
 export * from "./adjustPixelRect";
 export * from "./canvas";
+export * from "./svg";

@@ -24,6 +24,9 @@ function trimOffsetCanvas(c: HTMLCanvasElement): Rect | undefined {
   const ctx = c.getContext("2d");
   const width = c.width;
   const height = c.height;
+  if (width === 0 || height ===0){
+    return undefined;
+  }
   const imgData = ctx!.getImageData(0, 0, width, height).data;
   let newTop = 0;
   let newLeft = 0;

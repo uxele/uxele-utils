@@ -17,4 +17,5 @@ __export(require("./sleep"));
 __export(require("./loadRemoteFile"));
 __export(require("./adjustPixelRect"));
 __export(require("./canvas"));
+__export(require("./svg"));
 //# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/psdetch-utils/src/index.js.map
