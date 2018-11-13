@@ -10,8 +10,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var _canvas = __importStar(require("./canvas"));
-exports.canvas = _canvas;
+var canvas = __importStar(require("./canvas"));
+exports.canvas = canvas;
+var layer = __importStar(require("./layer"));
+exports.layer = layer;
 __export(require("./cachePromise"));
 __export(require("./sleep"));
 __export(require("./loadRemoteFile"));
