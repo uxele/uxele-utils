@@ -6,6 +6,7 @@ export * from "./loadRemoteFile";
 export * from "./adjustPixelRect";
 export * from "./canvas";
 export * from "./svg";
+export * from "./copyToClipboard";
 export {
   canvas,
   layer

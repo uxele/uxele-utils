@@ -164,6 +164,9 @@ function imgToCanvas(img) {
 }
 exports.imgToCanvas = imgToCanvas;
 function scaleCanvas(oriCanvas, scale) {
+    if (scale === 1) {
+        return oriCanvas;
+    }
     var rtn = document.createElement("canvas");
     rtn.width = oriCanvas.width * scale;
     rtn.height = oriCanvas.height * scale;

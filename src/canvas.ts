@@ -118,6 +118,9 @@ export function imgToCanvas(img: HTMLImageElement): HTMLCanvasElement {
 }
 
 export function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCanvasElement {
+  if (scale === 1){
+    return oriCanvas;
+  }
   const rtn = document.createElement("canvas");
   rtn.width = oriCanvas.width * scale;
   rtn.height = oriCanvas.height * scale;

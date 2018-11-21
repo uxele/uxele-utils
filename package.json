@@ -13,6 +13,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/clipboard": "^2.0.1",
     "@types/fabric": "^1.5.37",
     "@types/jasmine": "^2.8.8",
     "@types/node": "^10.5.1",
@@ -37,6 +38,7 @@
     "webpack-cli": "^3.0.8"
   },
   "dependencies": {
+    "clipboard": "^2.0.4",
     "path": "^0.12.7",
     "uxele-core": "git+https://github.com/uxele/uxele-core.git",
     "uxele-i18n": "git+https://github.com/uxele/uxele-i18n.git"

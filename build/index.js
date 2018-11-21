@@ -20,4 +20,5 @@ __export(require("./loadRemoteFile"));
 __export(require("./adjustPixelRect"));
 __export(require("./canvas"));
 __export(require("./svg"));
+__export(require("./copyToClipboard"));
 //# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/index.js.map
