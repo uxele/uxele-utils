@@ -17,9 +17,8 @@ export function isFolderLayer(layer: ILayer): layer is IFolderLayer {
 
 /**
  * 
- * @param x x coords on design file
- * @param y y coords on design file
- * @param layers 
+ * @param coords the coords that is relative to the page where layers belong to
+ * @param layers the layers to search in.
  */
 export async function bestLayerByCoords(coords:IPoint, layers: ILayer[]): Promise<ILayer | undefined>{
   let curDist = 0;

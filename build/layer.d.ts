@@ -5,8 +5,7 @@ export declare function isTextLayer(layer: ILayer): layer is ITextLayer;
 export declare function isFolderLayer(layer: ILayer): layer is IFolderLayer;
 /**
  *
- * @param x x coords on design file
- * @param y y coords on design file
- * @param layers
+ * @param coords the coords that is relative to the page where layers belong to
+ * @param layers the layers to search in.
  */
 export declare function bestLayerByCoords(coords: IPoint, layers: ILayer[]): Promise<ILayer | undefined>;

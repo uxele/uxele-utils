@@ -9,7 +9,7 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
         const src = URL.createObjectURL(blob);
         img.src = src;
         img.onload = () => {
-          URL.revokeObjectURL(src);
+          // URL.revokeObjectURL(src);
           resolve(img);
         };
       }else{
@@ -21,6 +21,7 @@ export function canvasToImg(canvas: HTMLCanvasElement): Promise<HTMLImageElement
   // img.src=canvas.toDataURL();
   // return img;
 }
+
 export async function svgToCanvas(svg:string, scale:number):Promise<HTMLCanvasElement>{
   return new Promise<HTMLCanvasElement>((resolve,reject)=>{
     const img=new Image();
@@ -60,18 +61,18 @@ export function zoomImg(img: HTMLImageElement, zoom: number): Promise<HTMLImageE
   return canvasToImg(canvas);
 }
 export function cropCanvas(canvas: HTMLCanvasElement, rect: Rect): HTMLCanvasElement {
-  if (rect.right > canvas.width) {
-    rect.right = canvas.width;
-  }
-  if (rect.left < 0) {
-    rect.left = 0;
-  }
-  if (rect.top < 0) {
-    rect.top = 0;
-  }
-  if (rect.bottom > canvas.height) {
-    rect.bottom = canvas.height;
-  }
+  // if (rect.right > canvas.width) {
+  //   rect.right = canvas.width;
+  // }
+  // if (rect.left < 0) {
+  //   rect.left = 0;
+  // }
+  // if (rect.top < 0) {
+  //   rect.top = 0;
+  // }
+  // if (rect.bottom > canvas.height) {
+  //   rect.bottom = canvas.height;
+  // }
   const newCanvas = document.createElement("canvas");
   newCanvas.width = rect.width;
   newCanvas.height = rect.height;
@@ -117,7 +118,7 @@ export function imgToCanvas(img: HTMLImageElement): HTMLCanvasElement {
   return canvas;
 }
 
-export function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCanvasElement {
+export function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number,smooth:boolean=true): HTMLCanvasElement {
   if (scale === 1){
     return oriCanvas;
   }
@@ -125,6 +126,15 @@ export function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCa
   rtn.width = oriCanvas.width * scale;
   rtn.height = oriCanvas.height * scale;
   const ctx = rtn.getContext("2d")!;
+  if (!smooth){
+    ctx.imageSmoothingEnabled=false;
+    ctx.webkitImageSmoothingEnabled=false;
+    ctx.mozImageSmoothingEnabled=false;
+    const style=rtn.style as any;
+    style["image-rendering"]="auto";
+    style["image-rendering"]="crisp-edges";
+    style["image-rendering"]="pixelated";
+  }
   ctx.drawImage(oriCanvas, 0, 0, oriCanvas.width, oriCanvas.height, 0, 0, rtn.width, rtn.height);
   return rtn;
 }

@@ -53,9 +53,8 @@ function isFolderLayer(layer) {
 exports.isFolderLayer = isFolderLayer;
 /**
  *
- * @param x x coords on design file
- * @param y y coords on design file
- * @param layers
+ * @param coords the coords that is relative to the page where layers belong to
+ * @param layers the layers to search in.
  */
 function bestLayerByCoords(coords, layers) {
     return __awaiter(this, void 0, void 0, function () {

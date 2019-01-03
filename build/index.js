@@ -14,6 +14,8 @@ var canvas = __importStar(require("./canvas"));
 exports.canvas = canvas;
 var layer = __importStar(require("./layer"));
 exports.layer = layer;
+var color = __importStar(require("./color"));
+exports.color = color;
 __export(require("./cachePromise"));
 __export(require("./sleep"));
 __export(require("./loadRemoteFile"));
@@ -21,4 +23,6 @@ __export(require("./adjustPixelRect"));
 __export(require("./canvas"));
 __export(require("./svg"));
 __export(require("./copyToClipboard"));
+var render = __importStar(require("./render"));
+exports.render = render;
 //# sourceMappingURL=/Users/kxiang/work/projects/psdetch/v3-new/uxele-utils/src/index.js.map

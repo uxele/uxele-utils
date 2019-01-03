@@ -8,4 +8,4 @@ export declare function cropCanvas(canvas: HTMLCanvasElement, rect: Rect): HTMLC
 export declare function canvasToImgUrl(canvas: HTMLCanvasElement): Promise<string>;
 export declare function svgToUrl(svgData: string): string;
 export declare function imgToCanvas(img: HTMLImageElement): HTMLCanvasElement;
-export declare function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number): HTMLCanvasElement;
+export declare function scaleCanvas(oriCanvas: HTMLCanvasElement, scale: number, smooth?: boolean): HTMLCanvasElement;

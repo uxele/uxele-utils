@@ -41,10 +41,10 @@ function canvasToImg(canvas) {
     return new Promise(function (resolve, reject) {
         canvas.toBlob(function (blob) {
             if (blob) {
-                var src_1 = URL.createObjectURL(blob);
-                img.src = src_1;
+                var src = URL.createObjectURL(blob);
+                img.src = src;
                 img.onload = function () {
-                    URL.revokeObjectURL(src_1);
+                    // URL.revokeObjectURL(src);
                     resolve(img);
                 };
             }
@@ -106,18 +106,18 @@ function zoomImg(img, zoom) {
 }
 exports.zoomImg = zoomImg;
 function cropCanvas(canvas, rect) {
-    if (rect.right > canvas.width) {
-        rect.right = canvas.width;
-    }
-    if (rect.left < 0) {
-        rect.left = 0;
-    }
-    if (rect.top < 0) {
-        rect.top = 0;
-    }
-    if (rect.bottom > canvas.height) {
-        rect.bottom = canvas.height;
-    }
+    // if (rect.right > canvas.width) {
+    //   rect.right = canvas.width;
+    // }
+    // if (rect.left < 0) {
+    //   rect.left = 0;
+    // }
+    // if (rect.top < 0) {
+    //   rect.top = 0;
+    // }
+    // if (rect.bottom > canvas.height) {
+    //   rect.bottom = canvas.height;
+    // }
     var newCanvas = document.createElement("canvas");
     newCanvas.width = rect.width;
     newCanvas.height = rect.height;
@@ -163,7 +163,8 @@ function imgToCanvas(img) {
     return canvas;
 }
 exports.imgToCanvas = imgToCanvas;
-function scaleCanvas(oriCanvas, scale) {
+function scaleCanvas(oriCanvas, scale, smooth) {
+    if (smooth === void 0) { smooth = true; }
     if (scale === 1) {
         return oriCanvas;
     }
@@ -171,6 +172,15 @@ function scaleCanvas(oriCanvas, scale) {
     rtn.width = oriCanvas.width * scale;
     rtn.height = oriCanvas.height * scale;
     var ctx = rtn.getContext("2d");
+    if (!smooth) {
+        ctx.imageSmoothingEnabled = false;
+        ctx.webkitImageSmoothingEnabled = false;
+        ctx.mozImageSmoothingEnabled = false;
+        var style = rtn.style;
+        style["image-rendering"] = "auto";
+        style["image-rendering"] = "crisp-edges";
+        style["image-rendering"] = "pixelated";
+    }
     ctx.drawImage(oriCanvas, 0, 0, oriCanvas.width, oriCanvas.height, 0, 0, rtn.width, rtn.height);
     return rtn;
 }
